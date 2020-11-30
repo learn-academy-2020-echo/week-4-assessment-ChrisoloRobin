@@ -7,7 +7,26 @@ var collections = ["purple", "blue", "green", "yellow", "pink"]
 // Expected output example2 (can be a different order): ["blue", "green", "pink"]
 // Expected output example3 (can be a different order): ["pink", "green"]
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+console.log(shuffle(collections))
 
 
 
@@ -18,7 +37,13 @@ var cubeAndSum1 = [2, 3, 4]
 var cubeAndSum2 = [0, 5, 10]
 // Expected output: 1125
 
-
+// const sum = (arr) => {
+//   //takes first 2 num of array (slice), reduces them which adds them together
+//   let newArray = arr.map((value, index) => return math.cube(value).reduce((a, b) => a + b))
+//   return newArray
+// }
+//
+// console.log(sum(cubeAndSum1))
 
 
 
@@ -29,7 +54,29 @@ var nums1 = [3, 56, 90, -8, 0, 23, 6]
 var nums2 = [109, 5, 9, -59, 8, 24]
 // Expected output: [-59, 109]
 
+//create function to filter array
+const minMaxLoop = (arr) => {
+//create empty array with max, min values
+  let max = arr[0]
+  let min =  arr[0]
+  //loop through array evaluating values
+  for (let i = 0; i < arr.length; i++){
+    if (max < arr[i]){
+      max = arr[i]
+    } else {
+      min = arr[i]
+    }
+  }
+  let result = ([min, max])
+  return result
+}
 
+console.log(minMaxLoop(nums1))
+console.log(minMaxLoop(nums2))
+
+
+
+//doesnt account for negative numbers. set the i value below zero still doesnt impact negative value nor does starting the empty array 
 
 
 
@@ -41,6 +88,16 @@ var testString2 = "jabberwocky"
 // Expected output: "jAbBeRwOcKy"
 
 
+const uppercase = (string) => {
+  var newString = "";
+  for (i=0; i < string.length; i++) {
+     newString += i % 2 !== 0 ? string.charAt(i).toUpperCase() : string.charAt(i);
+  }
+  return newString;
+}
+
+console.log(uppercase(testString1));
+console.log(uppercase(testString2));
 
 
 
